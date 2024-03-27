@@ -33,7 +33,14 @@ def solve_captcha_slider(driver):
 
     solver = PuzleSolver("piece.png", "background.png")
     solution = solver.get_position()
-    print(solution)
+
+    try:
+        slider = driver.find_element(By.CLASS_NAME, 'geetest_slider_button')
+        for x in range(0, 260, solution):
+            actions.move_to_element(slider).click_and_hold().move_by_offset(x, 0).release().perform()
+            time.sleep(0.5)
+    except:
+        print('No slider found. Continuing with the code.')
 
 
 URL = 'https://www.immobilienscout24.de/Suche/de/berlin/berlin/wohnung-kaufen?enteredFrom=one_step_search'
