@@ -13,14 +13,19 @@ class PuzleSolver:
     def get_position(self):
         template, x_inf, y_sup, y_inf = self.__piece_preprocessing()
         background = self.__background_preprocessing(y_sup, y_inf)
-
+    
+        if template.shape[0] >= background.shape[0] or template.shape[1] >= background.shape[1]:
+            # If the template is larger than or equal to the background in either dimension,
+            # resize the template to ensure it is smaller than the background
+            template = cv2.resize(template, (background.shape[1] - 1, background.shape[0] - 1))
+    
         res = cv2.matchTemplate(background, template, cv2.TM_CCOEFF_NORMED)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
         top_left = max_loc
-
+    
         origin = x_inf
         end = top_left[0] + PIXELS_EXTENSION
-
+    
         return end - origin
 
     def __background_preprocessing(self, y_sup, y_inf):
