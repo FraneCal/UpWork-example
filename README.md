@@ -12,7 +12,7 @@ I have copied the file solver.py from the given link, and added it to my code sc
 
 ![image](https://github.com/FraneCal/UpWork-example/assets/90317417/df21c782-f160-4c7e-a3dc-96efac76ad02) ![image](https://github.com/FraneCal/UpWork-example/assets/90317417/c54a3374-272d-4142-a865-68397fcd5437)
 
-I would like to use the PuzleSolver class from the solver.py to get the distance (under the variable solution) between them, and later on, use that distance to move the missing piece to the board. But when I run the code, I get the following error message: 
+I would like to use the PuzleSolver class from the solver.py to get the distance (under the variable solution) between them, and later on, use that distance to move the missing piece to the board (the for loop in the function). But when I run the code, I get the following error message: 
 
 
 File "c:\Users\xxxxx\OneDrive - xxxxx SA\Documents\German site\solver.py", line 17, in get_position
